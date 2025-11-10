@@ -1,6 +1,7 @@
 from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
+import os
 
 
 load_dotenv()  # take environment variables from .env.
@@ -8,6 +9,7 @@ load_dotenv()  # take environment variables from .env.
 
 def main():
     print("Hello from hello-world!")
+    print(os.environ.get("GOOGLE_API_KEY"))
     
     information = """
     """
