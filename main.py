@@ -2,6 +2,7 @@ from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.messages import AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_ollama import ChatOllama
 from datetime import datetime
 
 
@@ -11,7 +12,8 @@ def save_response_to_file(response: AIMessage, filename: str):
     """Saves the response to a file with a timestamp."""
     try:        
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        full_filename = f"{filename}_{timestamp}.md"
+        # Create file in folder name Summaries
+        full_filename = f"summaries/{filename}_{timestamp}.md"
 
         data = response.content
         markdown_content = f"""# Summary Response
@@ -60,8 +62,12 @@ def main():
     )
     
     # 4. Create the model and chain
-    model = ChatGoogleGenerativeAI(
-        model="gemini-2.5-flash-lite",
+    # model = ChatGoogleGenerativeAI(
+    #     model="gemini-2.5-flash-lite",
+    #     temperature=0,
+    # )
+    model = ChatOllama(
+        model="gemma3:1b",
         temperature=0,
     )
     # 5. Invoke the chain and print the response (LCEL)
