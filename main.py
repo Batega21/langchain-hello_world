@@ -2,18 +2,14 @@ from dotenv import load_dotenv
 from langchain_core.prompts import PromptTemplate
 from langchain_core.messages import AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
-import os
-from mistune import markdown
-import requests
-import json
 from datetime import datetime
 
 
 load_dotenv()  # take environment variables from .env.
 
 def save_response_to_file(response: AIMessage, filename: str):
+    """Saves the response to a file with a timestamp."""
     try:        
-        """Saves the response to a file with a timestamp."""
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         full_filename = f"{filename}_{timestamp}.md"
 
@@ -77,4 +73,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-  

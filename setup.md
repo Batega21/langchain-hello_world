@@ -7,8 +7,8 @@ Git init
 UV Python's package manager
     `uv add langchain`
     `uv add langchain-openai`
-    `uv add langchain-ggogle-vertexai`
-    `uv add langchain-ggogle-genai`
+    `uv add langchain-google-vertexai`
+    `uv add langchain-google-genai`
     `uv add python-dotenv`
     `uv add black isort` format
 Add .gitignore
@@ -19,7 +19,7 @@ Generate API Key on LLM - What billing
 *Prompt Template*: A template of a Prompt and add a parameters.
 
 *LangChain* chain is a workflow that connects multiple components and chaining together in a sequence, where the output of a step becomes the input of the next step.
-Each step can be an LM call, a prompt, a plate data transformation or tool call.
+Each step can be an LM call, a prompt, a data transformation or tool call.
 
 ### Langchain Chain Workflow
 
@@ -31,7 +31,7 @@ Language Model - Generate response
     |
 Output Parser - Parse LLM output into structured data
     |
-External ΑΡΙ Tool Call - Call external service
+External API Tool Call - Call external service
     |
 Final LLM Call - Process API response
     |
