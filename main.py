@@ -1,10 +1,13 @@
 from dotenv import load_dotenv
-from langchain_core.prompts import PromptTemplate
+from langchain_core.prompts import PromptTemplate   
 from langchain_core.messages import AIMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_ollama import ChatOllama
 from datetime import datetime
+import os
 
+def set_api_keys():
+    os.environ.get("NEW_API_KEY") = "your_new_api_key_here"
 
 load_dotenv()  # take environment variables from .env.
 
