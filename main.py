@@ -5,11 +5,11 @@ load_dotenv()
 from langchain_classic import hub
 from langchain_classic.agents import AgentExecutor
 from langchain_classic.agents.react.agent import create_react_agent
-from langchain_openai import ChatOpenAI
+from langchain_google_genai import GoogleGenerativeAI
 from langchain_tavily import TavilySearch
 
 tools = [TavilySearch()]
-llm = ChatOpenAI(model="gpt-4")
+llm = GoogleGenerativeAI(model="gemini-2.0-flash-exp")
 react_prompt = hub.pull("hwchase17/react")
 agent = create_react_agent(
     llm=llm,
