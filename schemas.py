@@ -13,6 +13,4 @@ class AgentResponse(BaseModel):
     """Schema for the agent response"""
 
     answer: str = Field(description="Answer to the question")
-    sources: List[Source] = Field(
-        description_factory=list, description="Sources of the answer"
-    )
+    sources: List[Source] = Field(description="Sources of the answer")

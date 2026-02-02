@@ -61,3 +61,34 @@ Throughout the course, you will work on hands-on exercises and real-world projec
 - Career-boosting: Stay ahead in the LLM and GenAI job market.
 - Step-by-step guidance: Clear, concise, no wasted time.
 - Flexible: Use any Python IDE (Pycharm shown, but not required).
+
+## React Agent
+
+### Structured Output
+
+1. What is the key difference between using `.with_structured_output()` and traditional output parsers?
+
+**`.with_structured_output()` uses function calling when available, falling back to parsing when not
+**The `.with_structured_output()` method intelligently uses function calling (tool calling) when the model supports it, which is more reliable than text parsing. When function calling isn't available, it falls back to using output parsers for text parsing.
+
+2. What is the purpose of the partial_variables parameter in this prompt template?
+
+```python
+ prompt = PromptTemplate(
+      template="Answer the user query.\n{format_instructions}\n{query}\n",
+      input_variables=["query"],
+      partial_variables={"format_instructions": parser.get_format_instructions()}
+```
+
+**To inject the parser's formatting instructions into every prompt**
+The partial_variables parameter allows you to pre-populate certain template variables. Here, it automatically injects the format instructions from the parser into every prompt, ensuring the model knows how to format its output.
+
+3. What does the `get_format_instructions()` method return?
+
+**A string with instructions for how the model should format its output**
+The `get_format_instructions()` method returns a string containing human-readable instructions that tell the language model how to format its output to be compatible with the parser.
+
+4. What is the primary purpose of Output Parsers in LangChain?
+
+**To transform raw text output from LLMs into structured, usable data formats**
+Output parsers are specifically designed to transform the raw string output from language models into structured data formats like JSON objects, Pydantic models, or custom Python objects. This is their core functionality in LangChain.
